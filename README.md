@@ -1,58 +1,45 @@
-## Mustache loader for [webpack](https://webpack.github.io/)
+## Mustache.js loader for [Webpack](https://webpack.js.org/) 4+
 
-[![npm](http://img.shields.io/npm/v/mustache-loader.svg?style=flat-square)](https://www.npmjs.org/package/mustache-loader)
-[![travis](http://img.shields.io/travis/deepsweet/mustache-loader.svg?style=flat-square)](https://travis-ci.org/deepsweet/mustache-loader)
-[![climate](http://img.shields.io/codeclimate/github/deepsweet/mustache-loader.svg?style=flat-square)](https://codeclimate.com/github/deepsweet/mustache-loader/code)
-[![peer deps](http://img.shields.io/david/peer/deepsweet/mustache-loader.svg?style=flat-square)](https://david-dm.org/deepsweet/mustache-loader#info=peerDependencies)
-[![dependencies](http://img.shields.io/david/deepsweet/mustache-loader.svg?style=flat-square)](https://david-dm.org/deepsweet/mustache-loader#info=dependencies)
+[![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=fff)]([#](https://www.npmjs.org/package/mustachejs-loader))
 
-Compiles [Mustache](https://mustache.github.io/) templates with [Hogan](https://twitter.github.io/hogan.js/) and optionally [html-minifier](https://github.com/kangax/html-minifier).
+Compiles [Mustache](https://mustache.github.io/) templates with [Hogan](https://twitter.github.io/hogan.js/) and optionally [html-minifier-terser](https://github.com/terser/html-minifier-terser).
 
 ### Install
 
 ```sh
-$ npm i -S mustache-loader
+$ npm i -S mustachejs-loader
 ```
 
 ### Usage
 
-webpack@1.x
+webpack@5.x
 ```javascript
 module: {
-    loaders: [ {
-        test: /\.html$/,
-        loader: 'mustache'
-        // loader: 'mustache?minify'
-        // loader: 'mustache?{ minify: { removeComments: false } }'
-        // loader: 'mustache?noShortcut'
-    } ]
-}
-```
-webpack@2.x
-```javascript
-module: {
-    rules: [ {
+    rules: [{
         test: /\.html$/,
         loader: 'mustache-loader'
         // loader: 'mustache-loader?minify'
         // loader: 'mustache-loader?{ minify: { removeComments: false } }'
         // loader: 'mustache-loader?noShortcut'
-    } ]
+    }]
 }
 ```
 
 ```javascript
-var template = require('./template.html');
-var html = template({ foo: 'bar' });
+const provider = require('./template.html');
+const html = provider({ foo: 'bar' });
 ```
 
 If `noShortcut` is passed, then Hogan compiled template is returned instead, so
 you can pass it as partial.
 
 ```javascript
-var template = require('./template.html');
-var template2 = require('./template2.html');
-var html = template.render({ foo: 'bar' }, {partial: template2});
+const template = require('./template.html');
+const template2 = require('./template2.html');
+const html = template.render(
+  { foo: 'bar' },
+  { partial: template2 }
+);
 ```
 
 If `clientSide` is passed in, then Hogan will not pre-compile the template.
@@ -84,11 +71,11 @@ plugins: [
 ]
 ```
 
-If another loader is chained after Mustache-Loader then the `minify`, `clientSide`, and `tiny` options will be ignored.
+If another loader is chained after **mustachejs-loader** then the `minify`, `clientSide`, and `tiny` options will be ignored.
 
 Any additional Hogan parameters passed into this loader will be passed through to Hogan.
 
-[Documentation: Using loaders](https://webpack.github.io/docs/using-loaders.html).
+[Documentation: Concept of Loaders](https://webpack.js.org/concepts/loaders/).
 
 ### License
 [WTFPL](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-strip.jpg)
