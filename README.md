@@ -1,6 +1,7 @@
 ## Mustache.js loader for [Webpack](https://webpack.js.org/) 4+
 
-[![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=fff)]([#](https://www.npmjs.org/package/mustachejs-loader))
+[![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=fff)](https://www.npmjs.org/package/mustachejs-loader)
+[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/Zierk59/mustachejs-loader)
 
 Compiles [Mustache](https://mustache.github.io/) templates with [Hogan](https://twitter.github.io/hogan.js/) and optionally [html-minifier-terser](https://github.com/terser/html-minifier-terser).
 
@@ -52,22 +53,22 @@ For example, the following will render `index.mustache` with the provided data (
 
 ```javascript
 module: {
-    rules: [ {
-        test: /index\.mustache$/,
-        loader: 'mustache-loader',
-        options: {
-            tiny: true,
-            render: {
-                title: 'hello world',
-            },
-        },
-    } ]
+  rules: [{
+    test: /index\.mustache$/,
+    loader: 'mustache-loader',
+    options: {
+      tiny: true,
+      render: {
+        title: 'hello world',
+      },
+    },
+  }]
 }
 plugins: [
-    new HtmlWebpackPlugin({
-        template: 'index.mustache',
-        inject: 'body',
-    }),
+  new HtmlWebpackPlugin({
+    template: 'index.mustache',
+    inject: 'body',
+  }),
 ]
 ```
 
