@@ -1,6 +1,6 @@
 .gitignore
 .editorconfig
-.eslintrc
 .jscsrc
 .travis.yml
+eslint.config.mjs
 test
